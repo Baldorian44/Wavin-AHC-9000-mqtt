@@ -79,6 +79,7 @@ bool WavinController::recieve(uint16_t *reply, uint8_t cmdtype)
 
 void WavinController::transmit(uint8_t *data, uint8_t lenght)
 {
+  //delayMicroseconds(250); // Wcfasdfsfsd
   // Empty recieve buffer before sending
   while (Serial.read() != -1);
 
@@ -88,7 +89,7 @@ void WavinController::transmit(uint8_t *data, uint8_t lenght)
 
   Serial.flush(); // Wait for data to be sent
   delayMicroseconds(250); // Wait for last char to be transmitted
-
+  
   digitalWrite(txEnablePin, LOW);
 }
 
